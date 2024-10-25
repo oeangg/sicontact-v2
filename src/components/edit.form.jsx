@@ -1,12 +1,13 @@
 "use client";
 
-import { SaveContact } from "@/actions/save.contact";
+import { UpdateContact } from "@/actions/save.contact";
 import { useActionState } from "react";
 import { BtnClose } from "./btn";
 import clsx from "clsx";
 
-export function AddFormContact({ selectGroup }) {
-  const [state, formAction, pending] = useActionState(SaveContact, null);
+export function UpdateFormContact({ selectGroup, contact }) {
+  const updateContactByID = UpdateContact.bind(null, contact.id);
+  const [state, formAction, pending] = useActionState(updateContactByID, null);
 
   const classNameSave = clsx(
     "flex-1 px-3 py-1 bg-foreground text-teal-50 font-medium text-lg rounded-md hover:bg-teal-600",
@@ -30,6 +31,7 @@ export function AddFormContact({ selectGroup }) {
             type="text"
             name="name"
             id=""
+            defaultValue={contact.name}
           />
         </div>
         <div
@@ -38,7 +40,7 @@ export function AddFormContact({ selectGroup }) {
           aria-live="polite"
           aria-atomic="true"
         >
-          <p className="text-xs  text-red-500 -mt-1 font-light ">
+          <p className="text-xs text-red-500 -mt-1 font-light ">
             {state?.Error.name}
           </p>
         </div>
@@ -50,6 +52,7 @@ export function AddFormContact({ selectGroup }) {
             type="tel"
             name="phone"
             id=""
+            defaultValue={contact.phone}
             className="w-2/3 p-1 rounded-md border border-teal-200 focus:ring-1 focus:outline-none focus:ring-teal-500"
           />
         </div>
@@ -71,6 +74,7 @@ export function AddFormContact({ selectGroup }) {
             type="email"
             name="email"
             id=""
+            defaultValue={contact.email}
             className="w-2/3 p-1 rounded-md border border-teal-200 focus:ring-1 focus:outline-none focus:ring-teal-500"
           />
         </div>
@@ -92,6 +96,7 @@ export function AddFormContact({ selectGroup }) {
             type="city"
             name="city"
             id=""
+            defaultValue={contact.city}
             className="w-2/3 p-1 rounded-md border border-teal-200 focus:ring-1 focus:outline-none focus:ring-teal-500"
           />
         </div>
@@ -113,19 +118,24 @@ export function AddFormContact({ selectGroup }) {
           <select
             name="groups"
             id=""
-            defaultValue={"DEFAULT"}
             className="w-2/3 p-1  rounded-md bg-white border   border-teal-200 focus:ring-1   focus:outline-none focus:ring-teal-500 cursor-pointer mb-5"
           >
-            <option value="DEFAULT" disabled>
-              Select Group
-            </option>
-            {/* value group id wajib diisi */}
-            {selectGroup.map((group, index) => (
-              <option className="bg-transparent" key={index} value={group.id}>
-                {" "}
-                {group.name}{" "}
-              </option>
-            ))}
+            {selectGroup.map((group, index) =>
+              contact.group.id === group.id ? (
+                <option
+                  className="bg-transparent"
+                  key={index}
+                  value={group.id}
+                  selected
+                >
+                  {contact.group.name}
+                </option>
+              ) : (
+                <option className="bg-transparent" key={index} value={group.id}>
+                  {group.name}
+                </option>
+              )
+            )}
           </select>
         </div>
         <div
@@ -152,7 +162,7 @@ export function AddFormContact({ selectGroup }) {
         <div className="flex gap-2 justify-center items-center">
           <BtnClose />
           <button type="submit" className={classNameSave} disabled={pending}>
-            {pending ? "Saving..." : "Save"}
+            {pending ? "Updating..." : "Update"}
           </button>
         </div>
       </form>

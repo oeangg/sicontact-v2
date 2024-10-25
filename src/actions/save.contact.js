@@ -45,3 +45,39 @@ export async function SaveContact(prevState, formData) {
   revalidatePath("/contacts");
   redirect("/contacts");
 }
+
+export async function UpdateContact(id, prevState, formData) {
+  const isValidatedContact = ZodContact.safeParse(
+    Object.fromEntries(formData.entries())
+  );
+
+  // const isValidatedContact = Object.fromEntries(formData.entries());
+
+  if (!isValidatedContact.success) {
+    return {
+      Error: isValidatedContact.error.flatten().fieldErrors,
+    };
+  }
+  // console.log(isValidatedContact);
+
+  // save database
+  try {
+    await prisma.contact.update({
+      data: {
+        name: isValidatedContact.data.name,
+        phone: isValidatedContact.data.phone,
+        city: isValidatedContact.data.city,
+        email: isValidatedContact.data.email,
+        groupId: isValidatedContact.data.groups,
+      },
+      where: {
+        id,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+
+  revalidatePath("/contacts");
+  redirect("/contacts");
+}

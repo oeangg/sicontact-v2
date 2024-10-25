@@ -1,10 +1,18 @@
+"use client";
+
 import Link from "next/link";
-import { IoAddCircleSharp, IoPencil, IoTrash } from "react-icons/io5";
+import {
+  IoAddCircleSharp,
+  IoPencilSharp,
+  IoTrash,
+  IoPeople,
+} from "react-icons/io5";
+import { DeleteContact } from "@/actions/delete.contact";
 
 export function BtnAddContact() {
   return (
     <Link
-      className="w-1/5 flex justify-center items-center bg-foreground px-2 rounded-md text-background text-sm font-normal"
+      className="w-1/5 flex justify-center items-center bg-foreground px-2 rounded-md text-background text-sm font-normal hover:bg-teal-600"
       href="/contacts/add"
     >
       <IoAddCircleSharp size={20} className="mr-2" /> Add Contact
@@ -12,10 +20,24 @@ export function BtnAddContact() {
   );
 }
 
-export function BtnEditContact() {
+export function BtnAddGroup() {
   return (
-    <Link href="/contacts/edit" className="flex justify-center items-center">
-      <IoPencil size={18} />
+    <Link
+      className=" flex justify-center items-center bg-transparent  text-teal-500 text-sm font-normal"
+      href="/group"
+    >
+      <IoPeople size={20} />
+    </Link>
+  );
+}
+
+export function BtnEditContact({ id }) {
+  return (
+    <Link
+      href={`/contacts/edit/${id}`}
+      className="flex justify-center  items-center  rounded-full bg-teal-400 text-teal-50"
+    >
+      <IoPencilSharp size={22} className="p-1" />
     </Link>
   );
 }
@@ -31,10 +53,14 @@ export function BtnClose() {
   );
 }
 
-export function BtnDeleteContact() {
+export function BtnDeleteContact({ id }) {
+  const deleteContactbyID = DeleteContact.bind(null, id);
+
   return (
-    <button className="flex justify-center items-center">
-      <IoTrash size={18} />{" "}
-    </button>
+    <form action={deleteContactbyID}>
+      <button className="flex justify-center  items-center  rounded-full bg-red-400 text-teal-50">
+        <IoTrash size={22} className="p-1" />{" "}
+      </button>
+    </form>
   );
 }

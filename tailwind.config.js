@@ -11,6 +11,10 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        Pacifico: ["var(--font-pacifico)"],
+        OpenSans: ["var(--font-open_Sans)"],
+      },
     },
   },
   plugins: [],

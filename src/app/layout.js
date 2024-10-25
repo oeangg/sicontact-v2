@@ -1,11 +1,19 @@
 import "./globals.css";
-import { Open_Sans } from "next/font/google";
+import { Open_Sans, Pacifico } from "next/font/google";
+
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  variable: "--font-pacifico",
+});
 
 const open_Sans = Open_Sans({
   weight: ["300", "400", "500", "600", "700", "800"],
   style: ["italic", "normal"],
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-open_Sans",
 });
 
 export const metadata = {
@@ -16,7 +24,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={open_Sans.className}>{children}</body>
+      <body className={`${open_Sans.variable} ${pacifico.variable} `}>
+        {children}
+      </body>
     </html>
   );
 }

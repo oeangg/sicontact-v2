@@ -2,18 +2,37 @@ import { SearchBox } from "@/components/search";
 import { BtnAddContact } from "@/components/btn";
 import { GridContact } from "@/components/grid.contact";
 import { SumContacts } from "@/components/sum.contacts";
+import { GetContactsPages } from "@/actions/gets.data";
+import { Pagination } from "@/components/pagination";
+import Link from "next/link";
 
-export default function ContactPage() {
+export default async function ContactPage({ searchParams }) {
+  const { query } = await searchParams;
+  const { page } = await searchParams;
+
+  const totalPages = await GetContactsPages(query);
+
   return (
-    <div className=" w-full h-screen bg-foreground pt-12 px-4 sm:px-0">
-      <div className="max-w-4xl  w-full mx-auto bg-background  rounded-md   flex flex-col gap-2  items-center ">
+    <div className=" w-full h-screen bg-foreground py-10 px-4 sm:px-0 shadow-xl">
+      <div className="max-w-4xl   w-full mx-auto bg-background  rounded-xl   flex flex-col gap-1  items-center ">
         <div className="flex  gap-2 w-full px-5 pt-7 pb-4 ">
-          <SumContacts />
+          <Link href="/" className="w-2/5">
+            <h1 className=" text-4xl text-teal-300 font-bold font-Pacifico ">
+              Si<span className="text-teal-400 text-5xl">Contacts/...</span>
+            </h1>
+          </Link>
           <SearchBox />
           <BtnAddContact />
         </div>
-        <GridContact />
+        <GridContact query={query} currentPages={page} />
+        <SumContacts query={query} />
+        <div className="w-full flex justify-center items-center mb-6">
+          <Pagination totalPages={totalPages} />
+        </div>
       </div>
+      <p className="pt-8 text-teal-100 font-light text-xs text-center">
+        Made with 😍 by Subhan Mohammad
+      </p>
     </div>
   );
 }
