@@ -25,7 +25,7 @@ export function SearchBox() {
 
     //update URL di params sesuai inputan di query
     router.replace(`${pathname}?${params.toString()}`);
-  }, 200);
+  }, 50);
   return (
     <form action="" className="w-2/5 relative flex  items-center ">
       <IoSearchOutline
