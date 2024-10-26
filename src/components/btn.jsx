@@ -1,21 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import {
-  IoAddCircleSharp,
-  IoPencilSharp,
-  IoTrash,
-  IoPeople,
-} from "react-icons/io5";
+import { IoAddSharp, IoPencilSharp, IoTrash, IoPeople } from "react-icons/io5";
 import { DeleteContact } from "@/actions/delete.contact";
 
 export function BtnAddContact() {
   return (
     <Link
-      className="w-1/5 flex justify-center items-center bg-foreground px-2 rounded-md text-background text-sm font-normal hover:bg-teal-600"
+      className="w-1/5 flex justify-center items-center bg-foreground px-2 rounded-lg text-background text-sm font-medium hover:bg-teal-600"
       href="/contacts/add"
     >
-      <IoAddCircleSharp size={20} className="mr-2" /> Add Contact
+      <IoAddSharp size={20} className="mr-2" /> Add
     </Link>
   );
 }

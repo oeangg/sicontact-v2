@@ -3,16 +3,17 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen flex items-center justify-center">
-      <div className=" bg-teal-500 w-1/2 h-full flex items-center  justify-center">
+    <div className="w-full h-screen flex flex-col items-center justify-center md:flex-row">
+      <div className=" bg-teal-500 w-full h-full flex md:w-1/2 ">
         <Image
           src="/contact.png"
-          width={500}
-          height={500}
+          width={400}
+          height={400}
           alt="image contact"
+          className="m-auto"
         />
       </div>
-      <div className=" w-1/2 text-center flex flex-col gap-2 justify-center items-center">
+      <div className="text-center flex flex-col gap-2 justify-center items-center py-8 md:w-1/2">
         <h1 className=" text-5xl text-teal-300 font-bold font-Pacifico ">
           Si<span className="text-teal-400 text-6xl">Contacts</span>
         </h1>
@@ -21,7 +22,7 @@ export default function Home() {
           Contact Database
         </h1>
         <Link
-          className=" px-5 py-2 bg-orange-600  rounded-xl text-background text-xl font-semibold hover:bg-orange-700"
+          className=" px-5 py-2 bg-red-500  rounded-xl text-background text-xl font-semibold hover:bg-red-600"
           href="/contacts"
         >
           Try for Free

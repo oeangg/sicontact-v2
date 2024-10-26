@@ -1,6 +1,6 @@
-import { GetGroup } from "@/actions/group";
+import { GetGroup } from "@/actions/get.groups";
 import { UpdateFormContact } from "@/components/edit.form";
-import { GetContactsById } from "@/actions/gets.data";
+import { GetContactsById } from "@/actions/get.contacts";
 import { notFound } from "next/navigation";
 
 export default async function UpdateContactPage({ params }) {

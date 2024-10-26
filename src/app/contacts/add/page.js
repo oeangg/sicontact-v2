@@ -1,5 +1,5 @@
 import { AddFormContact } from "@/components/add.form";
-import { GetGroup } from "@/actions/group";
+import { GetGroup } from "@/actions/get.groups";
 
 export default async function AddContactPage() {
   const selectGroup = await GetGroup();

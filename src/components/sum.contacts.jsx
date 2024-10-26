@@ -1,4 +1,4 @@
-import { GetContactsItem } from "@/actions/gets.data";
+import { GetContactsItem } from "@/actions/get.contacts";
 export async function SumContacts({ query }) {
   const sumContact = await GetContactsItem(query);
 

@@ -1,4 +1,4 @@
-import { GetContacts } from "@/actions/gets.data";
+import { GetContacts } from "@/actions/get.contacts";
 import { FormatDate } from "@/utils/format.date";
 import { BtnDeleteContact, BtnEditContact, BtnAddGroup } from "./btn";
 
@@ -11,7 +11,7 @@ export async function GridContact({ query, currentPages }) {
       <table className="w-full text-left">
         <thead className="uppercase text-foreground">
           <tr>
-            <th className="text-sm font-light py-2 px-3 ">##</th>
+            <th className="text-sm font-light py-2 px-3 ">#</th>
             <th className="text-sm font-light py-2 px-3 ">Name</th>
             <th className="text-sm font-light py-2 px-3">Phone</th>
             <th className="text-sm font-light py-2 px-3">City</th>

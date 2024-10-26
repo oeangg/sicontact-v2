@@ -1,4 +1,4 @@
-import { GetGroup } from "@/actions/group";
+import { GetGroup } from "@/actions/get.groups";
 import { GridForm } from "@/components/group.form";
 export default async function UpdateContactPage() {
   const groups = await GetGroup();

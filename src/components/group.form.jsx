@@ -9,14 +9,17 @@ export function GridForm({ groups }) {
   const [state, formAction, pending] = useActionState(SaveGroupContact, null);
 
   const classNameSave = clsx(
-    "flex-1 px-2 py-1 bg-foreground text-teal-50 font-light text-base rounded-md hover:bg-teal-600",
+    "flex-1 px-2 py-2 bg-foreground text-teal-50 font-light text-sm rounded-md hover:bg-teal-600",
     {
       "opacity-40 cursor-progress": pending,
     }
   );
 
   return (
-    <form action={formAction} className="w-full flex flex-col p-6 gap-2  ">
+    <form
+      action={formAction}
+      className="w-full flex flex-col py-4 px-8 gap-2  "
+    >
       <div className="w-full flex items-center justify-center gap-2 ">
         <div className="w-full">
           <input
@@ -33,7 +36,7 @@ export function GridForm({ groups }) {
           </button>
           <Link
             href="/contacts"
-            className="w-1/2 px-2 py-1 flex justify-center items-center bg-foreground text-teal-50 font-light text-base rounded-md hover:bg-teal-600"
+            className="w-1/2 px-2 py-2 flex justify-center items-center bg-foreground text-teal-50 font-light text-sm rounded-md hover:bg-teal-600"
           >
             Close
           </Link>
@@ -51,9 +54,9 @@ export function GridForm({ groups }) {
         </p>
       </div>
 
-      <table className="w-full text-left bg-teal-300 text-base font-medium p-2 ">
+      <table className="w-full text-left bg-teal-400  text-base font-medium p-2 ">
         <thead className="uppercase text-foreground">
-          <tr>
+          <tr className="text-teal-50">
             <th className="text-sm font-light py-2 px-3 ">##</th>
             <th className="text-sm font-light py-2 px-3 ">Name</th>
           </tr>

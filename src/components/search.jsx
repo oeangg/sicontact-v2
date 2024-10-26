@@ -40,7 +40,7 @@ export function SearchBox() {
         //buat defaul value sama seuai isian params dan sebaliknya
         defaultValue={searchParam.get("query")?.toString()}
         placeholder="Search name or phone number..."
-        className="px-12 py-2 w-full placeholder:text-xs placeholder:font-thin rounded-md bg-teal-50 border-2 border-foreground focus:outline-none focus:ring-1 focus:ring-foreground "
+        className="px-12 py-2 w-full placeholder:text-xs placeholder:font-thin rounded-lg bg-teal-50 border-2 border-foreground focus:outline-none focus:ring-1 focus:ring-foreground "
       />
     </form>
   );
