@@ -3,12 +3,13 @@ import { FormatDate } from "@/utils/format.date";
 import { BtnDeleteContact, BtnEditContact, BtnAddGroup } from "./btn";
 
 import { IoPersonCircle } from "react-icons/io5";
+import React from "react";
 export async function GridContact({ query, currentPages }) {
   const contacts = await GetContacts(query, currentPages);
 
   return (
     <div className="w-full px-6 pb-1   ">
-      <table className="w-full text-left">
+      <table className="w-full text-left ">
         <thead className="uppercase text-foreground">
           <tr>
             <th className="text-sm font-light py-2 px-3 ">#</th>

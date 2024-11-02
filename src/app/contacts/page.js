@@ -4,7 +4,9 @@ import { GridContact } from "@/components/grid.contact";
 import { SumContacts } from "@/components/sum.contacts";
 import { GetContactsPages } from "@/actions/get.contacts";
 import { Pagination } from "@/components/pagination";
+import { Loading } from "@/components/loading";
 import Link from "next/link";
+import React from "react";
 
 export default async function ContactPage({ searchParams }) {
   const { query } = await searchParams;
@@ -24,11 +26,16 @@ export default async function ContactPage({ searchParams }) {
           <SearchBox />
           <BtnAddContact />
         </div>
-        <GridContact query={query} currentPages={page} />
-        <SumContacts query={query} />
-        <div className="w-full flex justify-center items-center mb-6">
-          <Pagination totalPages={totalPages} />
-        </div>
+
+        <React.Suspense fallback={<Loading />}>
+          <GridContact query={query} currentPages={page} />
+
+          <SumContacts query={query} />
+
+          <div className="w-full flex justify-center items-center mb-6">
+            <Pagination totalPages={totalPages} />
+          </div>
+        </React.Suspense>
       </div>
       <p className="pt-8 text-teal-100 font-light text-xs text-center">
         Made with 😍 by Subhan Mohammad
