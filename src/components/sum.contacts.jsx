@@ -4,7 +4,7 @@ export async function SumContacts({ query }) {
 
   return (
     <div className="w-full  pr-14 text-right ">
-      <p className=" text-sm font-normal">Total contact : [ {sumContact} ]</p>
+      <p className=" text-xs font-thin">Total contact : [ {sumContact} ]</p>
     </div>
   );
 }

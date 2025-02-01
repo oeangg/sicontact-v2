@@ -9,7 +9,7 @@ export function AddFormContact({ selectGroup }) {
   const [state, formAction, pending] = useActionState(SaveContact, null);
 
   const classNameSave = clsx(
-    "flex-1 px-3 py-1 bg-foreground text-teal-50 font-medium text-lg rounded-md hover:bg-teal-600",
+    "flex-1 px-3 py-1 bg-twGreen text-background font-medium text-lg rounded-md hover:bg-foreground",
     {
       "opacity-40 cursor-progress": pending,
     }
@@ -26,7 +26,7 @@ export function AddFormContact({ selectGroup }) {
             Fullname{" "}
           </label>
           <input
-            className="w-2/3 p-1 rounded-md border border-teal-200 focus:ring-1 focus:outline-none focus:ring-teal-500"
+            className="w-2/3 p-1 rounded-md border border-foreground focus:ring-1 focus:outline-none focus:ring-foreground"
             type="text"
             name="name"
             id=""
@@ -50,7 +50,7 @@ export function AddFormContact({ selectGroup }) {
             type="tel"
             name="phone"
             id=""
-            className="w-2/3 p-1 rounded-md border border-teal-200 focus:ring-1 focus:outline-none focus:ring-teal-500"
+            className="w-2/3 p-1 rounded-md border border-foreground focus:ring-1 focus:outline-none focus:ring-foreground"
           />
         </div>
         <div
@@ -71,7 +71,7 @@ export function AddFormContact({ selectGroup }) {
             type="email"
             name="email"
             id=""
-            className="w-2/3 p-1 rounded-md border border-teal-200 focus:ring-1 focus:outline-none focus:ring-teal-500"
+            className="w-2/3 p-1 rounded-md border border-foreground focus:ring-1 focus:outline-none focus:ring-foreground"
           />
         </div>
         <div
@@ -92,7 +92,7 @@ export function AddFormContact({ selectGroup }) {
             type="city"
             name="city"
             id=""
-            className="w-2/3 p-1 rounded-md border border-teal-200 focus:ring-1 focus:outline-none focus:ring-teal-500"
+            className="w-2/3 p-1 rounded-md border border-foreground focus:ring-1 focus:outline-none focus:ring-foreground"
           />
         </div>
         <div
@@ -114,7 +114,7 @@ export function AddFormContact({ selectGroup }) {
             name="groups"
             id=""
             defaultValue={"DEFAULT"}
-            className="w-2/3 p-1  rounded-md bg-white border   border-teal-200 focus:ring-1   focus:outline-none focus:ring-teal-500 cursor-pointer mb-5"
+            className="w-2/3 p-1  rounded-md bg-white border   border-foreground focus:ring-1   focus:outline-none focus:ring-foreground cursor-pointer mb-5"
           >
             <option value="DEFAULT" disabled>
               Select Group

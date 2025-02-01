@@ -10,6 +10,8 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        twYellow: "var(--yellow)",
+        twGreen: "var(--green)",
       },
       fontFamily: {
         Pacifico: ["var(--font-pacifico)"],

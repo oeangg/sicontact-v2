@@ -27,10 +27,10 @@ export function SearchBox() {
     router.replace(`${pathname}?${params.toString()}`);
   }, 50);
   return (
-    <form action="" className="w-2/5 relative flex  items-center ">
+    <form action="" className="w-2/3 relative flex  items-center ">
       <IoSearchOutline
         size={24}
-        className="text-foreground absolute left-4 top-3  "
+        className="text-twGreen absolute left-4 top-3  "
       />
       <input
         type="text"
@@ -40,7 +40,7 @@ export function SearchBox() {
         //buat defaul value sama seuai isian params dan sebaliknya
         defaultValue={searchParam.get("query")?.toString()}
         placeholder="Search name or phone number..."
-        className="px-12 py-2 w-full placeholder:text-xs placeholder:font-thin rounded-lg bg-teal-50 border-2 border-foreground focus:outline-none focus:ring-1 focus:ring-foreground "
+        className="px-12 py-2 w-full placeholder:text-xs placeholder:text-twGreen placeholder:font-thin rounded-lg bg-background border border-twGreen focus:outline-none focus:ring-1 focus:ring-twGreen "
       />
     </form>
   );

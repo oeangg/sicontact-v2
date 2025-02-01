@@ -1,11 +1,10 @@
-import { SearchBox } from "@/components/search";
-import { BtnAddContact } from "@/components/btn";
 import { GridContact } from "@/components/grid.contact";
 import { SumContacts } from "@/components/sum.contacts";
 import { GetContactsPages } from "@/actions/get.contacts";
 import { Pagination } from "@/components/pagination";
-import { Loading } from "@/components/loading";
-import Link from "next/link";
+import { SearchBox } from "@/components/search";
+import { BtnAddContact, BtnAddGroup } from "@/components/btn";
+
 import React from "react";
 
 export default async function ContactPage({ searchParams }) {
@@ -15,31 +14,20 @@ export default async function ContactPage({ searchParams }) {
   const totalPages = await GetContactsPages(query);
 
   return (
-    <div className=" w-full h-screen bg-foreground py-10 px-4 sm:px-0 shadow-xl">
-      <React.Suspense fallback={<Loading />}>
-        <div className="max-w-4xl   w-full mx-auto bg-background  rounded-xl   flex flex-col gap-1  items-center ">
-          <div className="flex  gap-2 w-full px-5 pt-7 pb-4 ">
-            <Link href="/" className="w-2/5">
-              <h1 className=" text-3xl text-red-300 font-bold font-Pacifico ">
-                Si<span className="text-red-400 text-4xl">Contacts/...</span>
-              </h1>
-            </Link>
-            <SearchBox />
-            <BtnAddContact />
-          </div>
+    <div>
+      <div className="flex justify-end p-8 gap-2 w-full ">
+        <SearchBox />
+        <BtnAddContact />
+        <BtnAddGroup />
+      </div>
 
-          <GridContact query={query} currentPages={page} />
+      <GridContact query={query} currentPages={page} />
 
-          <SumContacts query={query} />
+      <SumContacts query={query} />
 
-          <div className="w-full flex justify-center items-center mb-6">
-            <Pagination totalPages={totalPages} />
-          </div>
-        </div>
-        <p className="pt-8 text-teal-100 font-light text-xs text-center">
-          Made with 😍 by Subhan Mohammad
-        </p>
-      </React.Suspense>
+      <div className="w-full flex justify-center items-center mb-6">
+        <Pagination totalPages={totalPages} />
+      </div>
     </div>
   );
 }

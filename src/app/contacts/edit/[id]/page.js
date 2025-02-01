@@ -13,7 +13,7 @@ export default async function UpdateContactPage({ params }) {
   }
 
   return (
-    <div className="w-full h-screen bg-foreground pt-12 px-4 sm:px-0">
+    <div className="w-full h-screen bg-transparent pt-12 px-4 sm:px-0">
       <div className="max-w-xl  w-full mx-auto bg-background py-8 px-3  rounded-md   flex flex-col gap-2  items-center">
         <h1 className="text-center text-xl font-semibold mb-5">
           Page Update Contact{" "}

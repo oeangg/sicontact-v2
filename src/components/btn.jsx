@@ -1,16 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { IoAddSharp, IoPencilSharp, IoTrash, IoPeople } from "react-icons/io5";
+import { IoAddSharp, IoPencilSharp } from "react-icons/io5";
+import { GrGroup } from "react-icons/gr";
+import { TiDeleteOutline } from "react-icons/ti";
 import { DeleteContact } from "@/actions/delete.contact";
 
 export function BtnAddContact() {
   return (
     <Link
-      className="w-1/5 flex justify-center items-center bg-foreground px-2 rounded-lg text-background text-sm font-medium hover:bg-teal-600"
+      className="w-1/5 flex justify-center border-2 border-twGreen items-center bg-transparent px-2 rounded-lg text-twGreen text-sm font-semibold tracking-wider hover:bg-twGreen hover:text-background"
       href="/contacts/add"
     >
-      <IoAddSharp size={20} className="mr-2" /> Add
+      <IoAddSharp size={22} className="mr-2" /> Add
     </Link>
   );
 }
@@ -18,10 +20,10 @@ export function BtnAddContact() {
 export function BtnAddGroup() {
   return (
     <Link
-      className=" flex justify-center items-center bg-transparent  text-teal-500 text-sm font-normal"
-      href="/group"
+      className=" flex justify-center  px-4 py-1 rounded-lg items-center bg-twGreen  text-background text-sm font-normal hover:opacity-80"
+      href="/contacts/group"
     >
-      <IoPeople size={20} />
+      <GrGroup size={20} />
     </Link>
   );
 }
@@ -30,9 +32,9 @@ export function BtnEditContact({ id }) {
   return (
     <Link
       href={`/contacts/edit/${id}`}
-      className="flex justify-center  items-center  rounded-full bg-teal-400 text-teal-50"
+      className="flex justify-center   items-center  rounded-full bg-twYellow text-background group-hover:bg-foreground"
     >
-      <IoPencilSharp size={22} className="p-1" />
+      <IoPencilSharp size={20} className="p-1" />
     </Link>
   );
 }
@@ -41,7 +43,7 @@ export function BtnClose() {
   return (
     <Link
       href="/contacts"
-      className="flex-1 flex justify-center items-center px-3 py-1 bg-foreground text-teal-50 font-medium text-lg rounded-md hover:bg-teal-600"
+      className="flex-1 flex justify-center border-2 border-twGreen  items-center px-3 py-1 bg-transparent text-twGreen font-medium text-lg rounded-md hover:bg-twGreen hover:text-background"
     >
       Cancel
     </Link>
@@ -53,8 +55,8 @@ export function BtnDeleteContact({ id }) {
 
   return (
     <form action={deleteContactbyID}>
-      <button className="flex justify-center  items-center  rounded-full bg-red-400 text-teal-50">
-        <IoTrash size={22} className="p-1" />{" "}
+      <button className="flex justify-center  items-center  rounded-full  text-twYellow group-hover:text-foreground">
+        <TiDeleteOutline size={36} className="p-1" />{" "}
       </button>
     </form>
   );

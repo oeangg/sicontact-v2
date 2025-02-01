@@ -9,7 +9,7 @@ export function GridForm({ groups }) {
   const [state, formAction, pending] = useActionState(SaveGroupContact, null);
 
   const classNameSave = clsx(
-    "flex-1 px-2 py-2 bg-foreground text-teal-50 font-light text-sm rounded-md hover:bg-teal-600",
+    "flex-1 px-2 py-2 bg-background text-twGreen border-2 border-twGreen font-light text-sm rounded-md hover:bg-twGreen hover:text-background",
     {
       "opacity-40 cursor-progress": pending,
     }
@@ -26,7 +26,7 @@ export function GridForm({ groups }) {
             type="text"
             name="name"
             placeholder="Name group.."
-            className="w-full py-1 px-2 rounded-md border  border-teal-200 placeholder:text-sm placeholder:font-light focus:ring-1 focus:outline-none focus:ring-teal-500"
+            className="w-full py-2 px-2 rounded-md border placeholder:text-twGreen  border-twGreen placeholder:text-xs placeholder:font-light focus:ring-1 focus:outline-none focus:ring-twGreen"
           />
         </div>
 
@@ -36,7 +36,7 @@ export function GridForm({ groups }) {
           </button>
           <Link
             href="/contacts"
-            className="w-1/2 px-2 py-2 flex justify-center items-center bg-foreground text-teal-50 font-light text-sm rounded-md hover:bg-teal-600"
+            className="w-1/2 px-2 py-2 flex justify-center items-center bg-twGreen text-background border-2 border-twGreen font-light text-sm rounded-md hover:opacity-80"
           >
             Close
           </Link>
@@ -54,9 +54,9 @@ export function GridForm({ groups }) {
         </p>
       </div>
 
-      <table className="w-full text-left bg-teal-400  text-base font-medium p-2 ">
+      <table className="w-full text-left bg-twGreen  text-base font-semibold p-2 ">
         <thead className="uppercase text-foreground">
-          <tr className="text-teal-50">
+          <tr className="text-background">
             <th className="text-sm font-light py-2 px-3 ">##</th>
             <th className="text-sm font-light py-2 px-3 ">Name</th>
           </tr>
@@ -65,7 +65,7 @@ export function GridForm({ groups }) {
           {groups.map((group, index) => (
             <tr
               key={index}
-              className=" bg-teal-50 text-sm   border-b-2 border-background font-normal   text-foreground   "
+              className=" bg-background text-sm   border-b-[1px] border-twGreen font-normal   text-foreground   "
             >
               <td className="  px-2 py-1  ">{index + 1}.</td>
               <td className=" px-2 py-1 ">{group.name}</td>

@@ -26,15 +26,15 @@ export function Pagination({ totalPages }) {
 
   function PaginationNumber({ page, href, position, isActive }) {
     const className = clsx(
-      "flex h-10 w-10 items-center justify-center  text-sm border border-teal-400 rounded-full ",
+      "flex h-10 w-10 items-center justify-center  text-sm border border-foreground rounded-full ",
       {
         // "rounded-l-sm": position === "first" || position === "single",
         // "rounded-r-sm": position === "last" || position === "single",
-        "z-10 bg-white border-teal-300 text-teal-700 font-semibold": isActive,
-        "z-10 bg-teal-300 text-teal-700 ": !isActive,
-        "hover:bg-teal-600 hover:text-teal-50":
+        "z-10 bg-white border-teal-300 text-foreground font-semibold": isActive,
+        "z-10 bg-background text-foreground ": !isActive,
+        "hover:bg-foreground hover:text-background":
           !isActive && position !== "middle",
-        "text-teal-400 pointer-events-none": position === "middle",
+        "text-foreground pointer-events-none": position === "middle",
       }
     );
 
@@ -49,10 +49,10 @@ export function Pagination({ totalPages }) {
 
   function PaginationArrow({ href, direction, isDisabled }) {
     const className = clsx(
-      "flex h-10 w-10 items-center justify-center text-sm border border-teal-400 rounded-xl ",
+      "flex h-10 w-10 items-center justify-center text-sm border border-foreground rounded-xl ",
       {
-        "pointer-events-none bg-teal-100  text-slate-200": isDisabled,
-        "hover:bg-teal-600 bg-teal-500 border-teal-200 text-teal-50 font-semibold":
+        "pointer-events-none bg-background  text-slate-200": isDisabled,
+        "hover:bg-twGreen bg-foreground border-twYellow text-background font-semibold":
           !isDisabled,
         "mr-2": direction === "right",
         "ml-2": direction === "left",
