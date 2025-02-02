@@ -1,5 +1,5 @@
 import { GetContacts } from "@/actions/get.contacts";
-import { BtnDeleteContact, BtnEditContact } from "./btn";
+import { BtnDeleteContact, BtnEditContact } from "./ui/btn";
 // import { MdWhatsapp, MdOutlineEmail } from "react-icons/md";
 
 import React from "react";
@@ -16,7 +16,7 @@ export async function GridContact({ query, currentPages }) {
       {contacts.map((contact, index) => (
         <li
           key={index}
-          className=" group transition-all duration-300 ease-in hover:bg-twGreen       bg-transparent  shadow-sm shadow-twGreen w-full  rounded-xl flex text-center flex-col gap-2 justify-center items-center  px-4 pt-4"
+          className=" group transition-all duration-300 ease-in hover:bg-twGreen       bg-background  shadow-sm shadow-twGreen w-full  rounded-xl flex text-center flex-col gap-2 justify-center items-center  px-4 pt-4"
         >
           <div className="w-16 h-16 rounded-full overflow-hidden ring-1 ring-twGreen border-4 border-background group-hover:ring-background">
             <Image
@@ -36,10 +36,6 @@ export async function GridContact({ query, currentPages }) {
           </div>
           <div className="flex justify-between w-full flex-row items-center p-1 rounded-md  ">
             <BtnEditContact id={contact.id} />
-            {/* <div className="py-2   flex flex-row justify-center text-twYellow items-center gap-1 group-hover:text-background">
-              <MdWhatsapp size={22} />
-              <MdOutlineEmail size={22} />
-            </div> */}
             <BtnDeleteContact id={contact.id} />
           </div>
         </li>

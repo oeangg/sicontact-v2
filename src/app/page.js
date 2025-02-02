@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import contactImage from "../assets/contact.jpg";
 import { IoIosArrowForward } from "react-icons/io";
+import { LinkBtn } from "@/components/ui/link-btn";
 
 export default function Home() {
   return (
@@ -25,7 +25,11 @@ export default function Home() {
           Build Stronger Relationships and Increase Sales with an Organized
           Contact Database
         </h1>
-        <Link
+        <LinkBtn href="/contacts">
+          Try for Free
+          <IoIosArrowForward size={26} />
+        </LinkBtn>
+        {/* <Link
           className=" group px-5 py-2 bg-background ring-2 ring-foreground border-4 flex justify-center items-center gap-2 border-twYellow transition-all duration-300 ease-in-out  rounded-full text-foreground text-xl uppercase font-semibold hover:bg-twYellow  hover:transform hover:scale-105"
           href="/contacts"
         >
@@ -34,7 +38,7 @@ export default function Home() {
             size={26}
             className="group-hover:transform group-hover:translate-x-2"
           />
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

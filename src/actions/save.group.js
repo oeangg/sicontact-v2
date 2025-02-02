@@ -23,7 +23,7 @@ export async function SaveGroupContact(prevState, formData) {
   try {
     await prisma.group.create({
       data: {
-        name: isValidatedGroup.data.name,
+        name: isValidatedGroup.data.name.toUpperCase(),
       },
     });
   } catch (error) {

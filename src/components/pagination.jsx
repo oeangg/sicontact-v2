@@ -30,7 +30,8 @@ export function Pagination({ totalPages }) {
       {
         // "rounded-l-sm": position === "first" || position === "single",
         // "rounded-r-sm": position === "last" || position === "single",
-        "z-10 bg-white border-teal-300 text-foreground font-semibold": isActive,
+        "z-10 bg-white border-foreground text-foreground font-semibold":
+          isActive,
         "z-10 bg-background text-foreground ": !isActive,
         "hover:bg-foreground hover:text-background":
           !isActive && position !== "middle",
@@ -52,7 +53,7 @@ export function Pagination({ totalPages }) {
       "flex h-10 w-10 items-center justify-center text-sm border border-foreground rounded-xl ",
       {
         "pointer-events-none bg-background  text-slate-200": isDisabled,
-        "hover:bg-twGreen bg-foreground border-twYellow text-background font-semibold":
+        "hover:bg-twYellow bg-foreground border-foreground hover:text-foreground text-background font-semibold":
           !isDisabled,
         "mr-2": direction === "right",
         "ml-2": direction === "left",

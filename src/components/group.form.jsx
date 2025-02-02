@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import clsx from "clsx";
+import { MdOutlineCancel, MdSave } from "react-icons/md";
 import { SaveGroupContact } from "@/actions/save.group";
 import { useActionState } from "react";
+import { LinkBtn } from "./ui/link-btn";
 
 export function GridForm({ groups }) {
   const [state, formAction, pending] = useActionState(SaveGroupContact, null);
 
   const classNameSave = clsx(
-    "flex-1 px-2 py-2 bg-background text-twGreen border-2 border-twGreen font-light text-sm rounded-md hover:bg-twGreen hover:text-background",
+    "flex gap-2 justify-center items-center px-6 py-2 bg-twYellow text-foreground font-bold rounded-md border-2 border-foreground hover:bg-yellow-300 transition duration-300 shadow-[2px_2px_0_theme(colors.yellow.800)] hover:shadow-[4px_4px_0_theme(colors.yellow.800)] hover:translate-x-[-2px] hover:translate-y-[-2px]",
     {
       "opacity-40 cursor-progress": pending,
     }
@@ -26,20 +28,17 @@ export function GridForm({ groups }) {
             type="text"
             name="name"
             placeholder="Name group.."
-            className="w-full py-2 px-2 rounded-md border placeholder:text-twGreen  border-twGreen placeholder:text-xs placeholder:font-light focus:ring-1 focus:outline-none focus:ring-twGreen"
+            className="px-3 py-2"
           />
         </div>
 
         <div className="flex gap-2 justify-center items-center">
           <button type="submit" className={classNameSave} disabled={pending}>
-            {pending ? "Saving..." : "Save"}
+            {pending ? "Saving..." : "Save"} <MdSave size={20} />
           </button>
-          <Link
-            href="/contacts"
-            className="w-1/2 px-2 py-2 flex justify-center items-center bg-twGreen text-background border-2 border-twGreen font-light text-sm rounded-md hover:opacity-80"
-          >
-            Close
-          </Link>
+          <LinkBtn href="/contacts">
+            <MdOutlineCancel size={24} />
+          </LinkBtn>
         </div>
       </div>
 
@@ -54,7 +53,7 @@ export function GridForm({ groups }) {
         </p>
       </div>
 
-      <table className="w-full text-left bg-twGreen  text-base font-semibold p-2 ">
+      <table className="w-full text-left bg-foreground  text-base font-semibold p-2 ">
         <thead className="uppercase text-foreground">
           <tr className="text-background">
             <th className="text-sm font-light py-2 px-3 ">##</th>
